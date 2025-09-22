@@ -50,9 +50,17 @@ conda activate esm2_env
 pip install -r requirements.txt
 ```
 
-4. Download ESM2 model (if not using Hugging Face cache):
+4. Set up Hugging Face cache (models will auto-download on first use):
 ```bash
-python -c "from transformers import EsmModel; EsmModel.from_pretrained('facebook/esm2_t33_650M_UR50D')"
+# Set cache directory (optional - defaults to ~/.cache/huggingface/)
+export HF_HOME=/path/to/your/cache/directory
+
+# Verify cache setup
+python -c "from transformers import AutoTokenizer; print('Cache location:', AutoTokenizer.from_pretrained('facebook/esm2_t33_650M_UR50D').cache_dir)"
+
+# Models will be automatically downloaded when first used in the pipeline
+# ESM2 650M model: ~1.2GB
+# ESMFold model: ~2.8GB
 ```
 
 ## Pipeline Overview
