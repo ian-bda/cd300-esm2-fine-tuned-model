@@ -300,9 +300,3 @@ kaleido
 - **ESMFold**: Meta AI Research
 - **InterProScan**: European Bioinformatics Institute
 - **Hugging Face**: Transformers library and model hosting
-
-## Contact
-
-For questions or issues, please:
-- Open an issue on GitHub
-- Contact: [your.email@institution.edu]
