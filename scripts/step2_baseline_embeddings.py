@@ -3,7 +3,7 @@
 Step 2: Baseline Embedding Generation and Visualization
 ======================================================
 
-This script generates embeddings using pretrained ESM2 3B (no fine-tuning) and:
+This script generates embeddings using pretrained ESM2 650M (no fine-tuning) and:
 1. Generates embeddings for all CD300 sequences
 2. Visualizes embeddings with UMAP/t-SNE
 3. Colors points by sequence cluster labels and inspects clustering
@@ -64,8 +64,8 @@ def load_cleaned_dataset():
     return df
 
 def load_esm2_model():
-    """Load the ESM2 3B model and tokenizer."""
-    logger.info("Loading ESM2 3B model...")
+    """Load the ESM2 650M model and tokenizer."""
+    logger.info("Loading ESM2 650M model...")
     
     model_name = "facebook/esm2_t33_650M_UR50D"  # Using 650M model for memory efficiency
     
@@ -186,7 +186,7 @@ def create_visualizations(reduced_embeddings, labels, cluster_labels, functional
     
     # Create figure with subplots
     fig, axes = plt.subplots(2, 2, figsize=(20, 16))
-    fig.suptitle('CD300 Protein Embeddings - Baseline ESM2 3B Analysis', fontsize=16, fontweight='bold')
+    fig.suptitle('CD300 Protein Embeddings - Baseline ESM2 650M Analysis', fontsize=16, fontweight='bold')
     
     # Encode string labels to numeric values for coloring
     le = LabelEncoder()

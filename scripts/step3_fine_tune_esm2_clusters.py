@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-Step 3: Fine-Tune ESM2 3B for CD300 Sequence Cluster Classification
+Step 3: Fine-Tune ESM2 650M for CD300 Sequence Cluster Classification
 
-This script fine-tunes the ESM2 3B model to classify CD300 protein sequences
+This script fine-tunes the ESM2 650M model to classify CD300 protein sequences
 into their sequence clusters (from Step 1) rather than unreliable homology labels.
 
 Key features:
@@ -211,7 +211,7 @@ def train_model(
     
     # Load tokenizer and model
     logger.info("Loading ESM2 tokenizer and model...")
-    model_name = "facebook/esm2_t33_650M_UR50D"  # Using ESM2 3B model
+    model_name = "facebook/esm2_t33_650M_UR50D"  # Using ESM2 650M model
     tokenizer = EsmTokenizer.from_pretrained(model_name)
     
     # Load base ESM model (let GradScaler handle FP16)

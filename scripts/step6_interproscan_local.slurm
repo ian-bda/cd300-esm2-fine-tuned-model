@@ -28,6 +28,7 @@ echo "Using InterProScan at: /home5/ibirchl/Bioinformatics_tools/interproscan-5.
 
 python scripts/step6_interproscan_local.py \
     --fasta data/Euarchontoglires_CD300s_complete.fasta \
+    --model_path step3_fine_tuned_model/best_model \
     --interproscan /home5/ibirchl/Bioinformatics_tools/interproscan-5.65-97.0 \
     --output step6_interproscan_local \
     --skip_interproscan
