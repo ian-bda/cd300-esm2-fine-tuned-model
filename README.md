@@ -13,6 +13,8 @@ This project is a comprehensive multi-modal analysis pipeline that uses state-of
 
 The analysis focuses on the Euarchontoglires superorder (primates, rodents, lagomorphs) as a test case for discovering previously unannotated CD300 protein variants and understanding their functional properties, evolutionary relationships, and structural characteristics.
 
+See projectoverview.md for a more detailed overview.
+
 ### Key Questions Addressed
 
 1. **Can ESM2 3B generalize across evolutionary distances?** How well does a model trained on diverse vertebrates perform on completely unseen Euarchontoglires sequences?
