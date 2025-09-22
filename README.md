@@ -1,10 +1,10 @@
-# CD300 Protein Analysis Using Fine-Tuned ESM2 3B Model
+# CD300 Protein Analysis Using Fine-Tuned ESM2 650M Model
 
 ## Project Overview
 
 This project is a comprehensive multi-modal analysis pipeline that uses state-of-the-art protein language models and bioinformatics tools to discover, characterize, and understand CD300 protein diversity across vertebrate evolution. The pipeline combines:
 
-- **Deep learning-based sequence analysis** using fine-tuned ESM2 3B models
+- **Deep learning-based sequence analysis** using fine-tuned ESM2 650M models
 - **Functional domain prediction** with InterProScan and mutation effect analysis
 - **3D structure prediction** using ESMFold for structural characterization
 - **Phylogenetic analysis** with phylomorphospace visualization and evolutionary signal testing
@@ -13,11 +13,9 @@ This project is a comprehensive multi-modal analysis pipeline that uses state-of
 
 The analysis focuses on the Euarchontoglires superorder (primates, rodents, lagomorphs) as a test case for discovering previously unannotated CD300 protein variants and understanding their functional properties, evolutionary relationships, and structural characteristics.
 
-See projectoverview.md for a more detailed overview.
-
 ### Key Questions Addressed
 
-1. **Can ESM2 3B generalize across evolutionary distances?** How well does a model trained on diverse vertebrates perform on completely unseen Euarchontoglires sequences?
+1. **Can ESM2 650M generalize across evolutionary distances?** How well does a model trained on diverse vertebrates perform on completely unseen Euarchontoglires sequences?
 2. **Are there novel CD300 variants in Euarchontoglires?** What previously unannotated or unknown CD300 subtypes exist in this superorder?
 3. **How do novel variants differ functionally?** Are novel CD300 variants more or less sensitive to mutations compared to known subtypes?
 4. **What are the structural implications?** How do 3D structures of novel variants compare to known CD300 subtypes?
@@ -59,8 +57,8 @@ export HF_HOME=/path/to/your/cache/directory
 python -c "from transformers import AutoTokenizer; print('Cache location:', AutoTokenizer.from_pretrained('facebook/esm2_t33_650M_UR50D').cache_dir)"
 
 # Models will be automatically downloaded when first used in the pipeline
-# ESM2 650M model: ~1.2GB
-# ESMFold model: ~2.8GB
+# ESM2 650M model: ~1.2GB (used in Steps 2, 3, 4, 6)
+# ESMFold model: ~2.8GB (used in Step 7)
 ```
 
 ## Pipeline Overview
@@ -83,13 +81,13 @@ The analysis consists of 8 main steps (Step 9 is in development):
 **Outputs:** Static PCA/t-SNE plots, interactive HTML plots, baseline analysis report
 
 ### Step 2: Baseline Embedding Generation
-- Generate embeddings using pretrained ESM2 3B (no fine-tuning)
+- Generate embeddings using pretrained ESM2 650M (no fine-tuning)
 - Visualize embeddings with PCA/t-SNE
 - Color points by subtype labels and inspect clustering
 
 **Outputs:** Embedding matrices, visualization plots, cluster overlap summary
 
-### Step 3: Fine-Tune ESM2 3B for CD300 Classification
+### Step 3: Fine-Tune ESM2 650M for CD300 Classification
 - Remove Euarchontoglires sequences from training data
 - Split remaining data into 80% training and 20% validation sets
 - Fine-tune ESM2 on sequence clusters (not homology annotations)
@@ -310,3 +308,5 @@ kaleido
 - **ESMFold**: Meta AI Research
 - **InterProScan**: European Bioinformatics Institute
 - **Hugging Face**: Transformers library and model hosting
+
+
