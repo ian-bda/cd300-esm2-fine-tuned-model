@@ -1,4 +1,4 @@
- CD300 Protein Analysis Using Fine-Tuned ESM2 3B Model
+# CD300 Protein Analysis Using Fine-Tuned ESM2 3B Model
 
 ## Project Overview
 
