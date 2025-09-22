@@ -1,8 +1,8 @@
-# Project Overview: CD300 Protein Analysis Using Fine-Tuned ESM2 3B Model
+# Project Overview: CD300 Protein Analysis Using Fine-Tuned ESM2 650M Model
 
-## Model Background: ESM2 3B
-- **Parameters**: 3 billion
-- **Architecture**: 36 layers, 40 attention heads
+## Model Background: ESM2 650M
+- **Parameters**: 650 million
+- **Architecture**: 33 layers, 20 attention heads
 - **Input capacity**: Sequences up to length 1022 amino acids
 - **Capabilities**: Embedding generation, mutation effect prediction, subtype classification
 
@@ -10,7 +10,7 @@
 
 ## Project Goals
 - **Discover novel CD300 variants** in Euarchontoglires using rigorous AI-based validation.
-- **Fine-tune ESM2 3B** on diverse vertebrate data (excluding Euarchontoglires) for CD300 subtype classification.
+- **Fine-tune ESM2 650M** on diverse vertebrate data (excluding Euarchontoglires) for CD300 subtype classification.
 - **Validate model generalization** by testing on completely unseen Euarchontoglires sequences.
 - **Characterize functional properties** of novel variants through mutation effect prediction and 3D structure modeling.
 - **Establish framework** for discovering novel protein variants across other vertebrate clades using the same approach.
@@ -18,7 +18,7 @@
 ---
 
 ## Key Questions
-1. **Can ESM2 3B generalize across evolutionary distances?** How well does a model trained on diverse vertebrates perform on completely unseen Euarchontoglires sequences?
+1. **Can ESM2 650M generalize across evolutionary distances?** How well does a model trained on diverse vertebrates perform on completely unseen Euarchontoglires sequences?
 2. **Are there novel CD300 variants in Euarchontoglires?** What previously unannotated or unknown CD300 subtypes exist in this superorder?
 3. **How do novel variants differ functionally?** Are novel CD300 variants more or less sensitive to mutations compared to known subtypes?
 4. **What are the structural implications?** How do 3D structures of novel variants compare to known CD300 subtypes?
@@ -69,7 +69,7 @@
 ---
 
 ### Step 2: Baseline Embedding Generation and Visualization
-- Generate embeddings using pretrained ESM2 3B (no fine-tuning).
+- Generate embeddings using pretrained ESM2 650M (no fine-tuning).
 - Visualize embeddings with UMAP/t-SNE.
 - Color points by subtype labels and inspect clustering.
 
@@ -81,7 +81,7 @@
 
 ---
 
-### Step 3: Fine-Tune ESM2 3B for CD300 Sequence Cluster Classification
+### Step 3: Fine-Tune ESM2 650M for CD300 Sequence Cluster Classification
 - **Data preparation**: Start with CSV of all sequences from lots of orders (large diverse dataset).
 - **Clade removal**: Remove Euarchontoglires sequences → place in separate file for final validation.
 - **Data splitting**: Split remaining data into 80% training / 20% test.
@@ -281,7 +281,7 @@ Time Tree + PCA/t-SNE → R/phytools → Phylomorphospace Plots
 
 ## Training Workflow:
 
-Training Data (80%) → Fine-tune ESM2 3B on Sequence Clusters
+Training Data (80%) → Fine-tune ESM2 650M on Sequence Clusters
      ↓
 Test Data (20%) → Extract embeddings → Validate model performance
      ↓
@@ -307,6 +307,7 @@ External Dataset (Euarchontoglires) → Generate embeddings → Novel variant de
 
 ## Environment & Dependencies
 - **Core**: Python 3.10+, PyTorch 2.0+, Hugging Face Transformers, fair-esm
+- **ESM2 650M Model**: ~1.2GB, 650 million parameters, 33 layers
 - **Visualization**: matplotlib, seaborn, umap-learn, scikit-learn, plotly, kaleido
 - **Clustering**: hdbscan, scipy
 - **Structure**: ESMFold, biopython, PyMOL (optional)
@@ -341,7 +342,7 @@ kaleido
 ## Risks and Challenges
 - **Sequence length limit (1022 aa)** may truncate longer isoforms.
 - **Cluster imbalance** (some CD300 sequence clusters may have few examples).
-- **Computational cost**: fine-tuning a 3B parameter model is resource-intensive.
+- **Computational cost**: fine-tuning a 650M parameter model is resource-intensive but manageable.
 - **Unreliable homology labels**: Original dataset contains potentially incorrect homology-based annotations that we avoid by using sequence clusters.
 
 ---
