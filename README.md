@@ -31,24 +31,12 @@ The analysis focuses on the Euarchontoglires superorder (primates, rodents, lago
 
 ### Installation
 
-1. Clone the repository:
-```bash
-git clone https://github.com/yourusername/cd300-esm2-fine-tuned-model.git
-cd cd300-esm2-fine-tuned-model
-```
-
-2. Create and activate conda environment:
-```bash
-conda create -n esm2_env python=3.10
-conda activate esm2_env
-```
-
-3. Install dependencies:
+1. Install dependencies:
 ```bash
 pip install -r requirements.txt
 ```
 
-4. Set up Hugging Face cache (models will auto-download on first use):
+2. Set up Hugging Face cache (models will auto-download on first use):
 ```bash
 # Set cache directory (optional - defaults to ~/.cache/huggingface/)
 export HF_HOME=/path/to/your/cache/directory
